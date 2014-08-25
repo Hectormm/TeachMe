@@ -1,8 +1,14 @@
 ﻿<Window x:Class="TeachMe.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="550" Width="825">
+    <Window.Background>
+        <ImageBrush ImageSource="./Img/uk.jpg" />
+    </Window.Background>
     <Grid>
-        <!-- prueba -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Style="{DynamicResource TitleStyle}" Content="Irregular Verbs"/>
     </Grid>
 </Window>
