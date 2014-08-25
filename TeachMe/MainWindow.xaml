@@ -8,7 +8,13 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="392" />
+            <RowDefinition Height="Auto" MinHeight="34" />
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Style="{DynamicResource TitleStyle}" Content="Irregular Verbs"/>
+        
+        <Label Grid.Row="0" Style="{DynamicResource TitleStyle}" Content="Irregular Verbs" Margin="280,0,281,0" Width="256"/>
+
+        <Button Grid.Row="2" Content="Exit" Width="100" HorizontalAlignment="Right" Margin="0,10,10,-23" Click="Button_Click" />
+        
     </Grid>
 </Window>
