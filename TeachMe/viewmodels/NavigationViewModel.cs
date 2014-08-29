@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using TeachMe.viewmodels;
 using TeachMe;
+using TeachMe.Views;
 
 
 namespace TeachMe.viewmodels
@@ -39,7 +40,11 @@ namespace TeachMe.viewmodels
             /*instance.currentPage = new Botonera();
             instance.currentPage.DataContext = new CategoriaViewModel();*/
             instance.currentPageNav = new NavVerbos();
-            instance.currentPageNav.DataContext = new verbosViewModel();
+            //instance.currentPageNav.DataContext = new verbosViewModel();
+
+            TeachMe.viewmodels.NavigationViewModel.instance.currentPage = new pageVerbs();
+            TeachMe.viewmodels.NavigationViewModel.instance.currentPage.DataContext = new verbosViewModel();
+
          
             instance.Back = new Stack<Page>();
             instance.Forward = new Stack<Page>();

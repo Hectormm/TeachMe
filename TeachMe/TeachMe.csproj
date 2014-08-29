@@ -76,6 +76,9 @@
     </Compile>
     <Compile Include="viewmodels\NavigationViewModel.cs" />
     <Compile Include="viewmodels\verbosViewModel.cs" />
+    <Compile Include="Views\pageVerbs.xaml.cs">
+      <DependentUpon>pageVerbs.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -93,6 +96,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\pageVerbs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

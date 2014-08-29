@@ -20,8 +20,8 @@
 
     <Grid>
         <!--<Image Source="pack://siteoforigin:,,,/fondo android.PNG" Stretch="Fill" OpacityMask="Black"/>-->
-        <Frame Height="511" Width="180" HorizontalAlignment="Left" Margin="0,0,0,0" Name="frameBotonera" VerticalAlignment="Top" Content="{Binding Path=CurrentPageNav, Mode=OneWay}"/>
+        <Frame Height="100" Width="825" HorizontalAlignment="Left" Margin="0,0,0,0" Name="frameBotonera" VerticalAlignment="Top" Content="{Binding Path=CurrentPageNav, Mode=OneWay}"/>
 
-        <Frame Height="511" NavigationUIVisibility="Hidden" Width="700" Margin="180,0,0,0" Name="frameContenido" VerticalAlignment="Top" Content="{Binding Path=CurrentPage, Mode=OneWay}"/>
+        <Frame Height="419" Width="825" NavigationUIVisibility="Hidden" Margin="0,100,-8,0" Name="frameContenido" VerticalAlignment="Top" Content="{Binding Path=CurrentPage, Mode=OneWay}"/>
     </Grid>
 </Window>

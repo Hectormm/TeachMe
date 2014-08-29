@@ -23,16 +23,19 @@ namespace TeachMe.viewmodels
 
             MessageBox.Show(dictionary.Count.ToString());
 
-            /*foreach (KeyValuePair<string, List<String>> result in dictionary)
-            {
-                Console.WriteLine(string.Format("Key-{0}:Value-{1}", result.Key, result.Value));
-                MessageBox.Show("Key: " + result.Key);
+            verboAlAzar(dictionary);
 
-                foreach(string a in result.Value)
-                {
-                    MessageBox.Show(a);
-                }
-            }*/
+            /* foreach (KeyValuePair<string, List<String>> result in dictionary)
+           {
+               Console.WriteLine(string.Format("Key-{0}:Value-{1}", result.Key, result.Value));
+               MessageBox.Show("Key: " + result.Key);
+
+               foreach(string a in result.Value)
+               {
+                   MessageBox.Show(a);
+               }
+           }*/
+           
         }
 
         #region Validation
@@ -65,7 +68,24 @@ namespace TeachMe.viewmodels
             }
             return correcto;
         }
-       
+
+        #endregion
+
+        #region Properties
+
+        private string nombre;
+        public String Nombre
+        {
+            get
+            {
+                return nombre;
+            }
+            set
+            {
+                nombre = value;
+                RaisePropertyChanged("Nombre");
+            }
+        }
 
         #endregion
 
@@ -95,6 +115,23 @@ namespace TeachMe.viewmodels
 
             return dictionary;
 
+        }
+
+        public void verboAlAzar(Dictionary<String, List<String>> dictionary)
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(1, dictionary.Count+1);
+
+            int i = 1;
+            foreach (KeyValuePair<string, List<String>> result in dictionary)
+           {
+                if(i == randomNumber)
+                {
+                    nombre = result.Key;
+                }
+
+               i++;
+           }
         }
 
         #endregion
