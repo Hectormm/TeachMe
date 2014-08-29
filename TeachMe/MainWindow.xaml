@@ -5,7 +5,7 @@
     <Window.Background>
         <ImageBrush ImageSource="./Img/uk.jpg" />
     </Window.Background>
-    <Grid>
+    <!-- <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="392" />
@@ -16,5 +16,12 @@
 
         <Button Grid.Row="2" Content="Exit" Width="100" HorizontalAlignment="Right" Margin="0,10,10,-23" Click="Button_Click" />
         
+    </Grid>-->
+
+    <Grid Background="#FF3D3D3D">
+        <!--<Image Source="pack://siteoforigin:,,,/fondo android.PNG" Stretch="Fill" OpacityMask="Black"/>-->
+        <Frame Height="511" Width="180" HorizontalAlignment="Left" Margin="0,0,0,0" Name="frameBotonera" VerticalAlignment="Top" Content="{Binding Path=CurrentPageNav, Mode=OneWay}"/>
+
+        <Frame Height="511" NavigationUIVisibility="Hidden" Width="700" Margin="180,0,0,0" Name="frameContenido" VerticalAlignment="Top" Content="{Binding Path=CurrentPage, Mode=OneWay}"/>
     </Grid>
 </Window>

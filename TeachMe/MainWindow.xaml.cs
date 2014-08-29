@@ -1,4 +1,5 @@
-﻿using System;
+﻿using TeachMe.viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TeachMe.viewmodels;
 
 namespace TeachMe
 {
@@ -23,9 +23,12 @@ namespace TeachMe
     {
         public MainWindow()
         {
-            InitializeComponent();
             //MOOCAutoSnailEscritorio.viewmodels.NavigationViewModel.Instance.CurrentPage.DataContext = new CategoriaViewModel();
             //TeachMe.viewmodels
+            InitializeComponent();
+            DataContext = NavigationViewModel.Instance;
+            NavigationViewModel.Instance.CurrentFrameNav = frameBotonera;
+            //TeachMe.viewmodels.NavigationViewModel.Instance.CurrentPage.DataContext = new verbosViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

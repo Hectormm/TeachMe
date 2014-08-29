@@ -8,6 +8,7 @@ using CommonMvvm;
 using System.Data.OleDb;
 using System.Data;
 using System.Windows;
+using System.IO;
 
 namespace TeachMe.viewmodels
 {
@@ -17,54 +18,71 @@ namespace TeachMe.viewmodels
 
         public verbosViewModel()
         {
-            rellenarDictionary(dictionary);
+            dictionary = new Dictionary<String, List<String>>();
+            dictionary = rellenarDictionary(dictionary);
+
+            MessageBox.Show(dictionary.Count.ToString());
         }
+
+        #region Validation
+
+        public string Error
+        {
+            get { return null; }
+        }
+
+        public string this[string propertyName]
+        {
+            get { return IsValid(propertyName); }
+        }
+
+        
+
+        private string IsValid(string propertyName)
+        {
+            
+            return null;
+        }
+
+        public bool IsValid()
+        {
+            bool correcto = string.IsNullOrEmpty(IsValid("Nombre") + IsValid("Descripcion"));
+            if (!correcto)
+            {
+                RaisePropertyChanged("Nombre");
+                RaisePropertyChanged("Descripcion");
+            }
+            return correcto;
+        }
+       
+
+        #endregion
 
         #region Commandss
 
-        public void rellenarDictionary(Dictionary<String, List<String>> dictionary)
+        public Dictionary<String, List<String>> rellenarDictionary(Dictionary<String, List<String>> dictionary)
         {
-            string[] array = new string[3];
+            List<String> verbosIngles = new List<string>();
+            string line;
 
-            List<String> hola = new List<string>();
+            System.IO.StreamReader file = new System.IO.StreamReader(System.AppDomain.CurrentDomain.BaseDirectory + @"..\..\verbs\irregularverbs.txt");
 
-            hola.Add("hello");
-            hola.Add("hi");
-            hola.Add("hallo");
-            
-
-            dictionary.Add("hola", hola);
-
-
-
-            //Leer fichero
-            OleDbConnection conexion = null;
-            DataSet dataSet = null;
-            OleDbDataAdapter dataAdapter = null;
-            string consultaHojaExcel = "Select * from [Hoja1$]";
-
-            //Cadena para excel 2007 y 2010
-            string cadenaConexionArchivoExcel = "provider=Microsoft.ACE.OLEDB.12.0;Data Source=' ../verbs/irregularverbs.xlsx ';Extended Properties=Excel 12.0;";
-
-            try
+            while((line = file.ReadLine()) != null)
             {
-                conexion = new OleDbConnection(cadenaConexionArchivoExcel);
-                conexion.Open();
-                dataAdapter = new OleDbDataAdapter(consultaHojaExcel, conexion);
-                dataSet = new DataSet();
-                dataAdapter.Fill(dataSet, "Hoja1");
-                conexion.Close();
+                verbosIngles = new List<string>();
 
-                foreach(DataRow d in dataSet.Tables[0].Rows)
-                {
-                    MessageBox.Show(d[0].ToString());
-                }
+                string[] palabras = new string[4];
 
+                palabras = line.Split('\t');
+
+                verbosIngles.Add(palabras[1]);
+                verbosIngles.Add(palabras[2]);
+                verbosIngles.Add(palabras[3]);
+
+                dictionary.Add(palabras[0], verbosIngles);
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error, Verificar el archivo o el nombre de la hoja", ex.Message);
-            }
+
+            return dictionary;
 
         }
 

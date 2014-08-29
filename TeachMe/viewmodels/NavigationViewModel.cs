@@ -7,15 +7,13 @@ using System.Windows.Input;
 using System.Windows.Controls;
 using CommonMvvm;
 using System.Text.RegularExpressions;
-using MOOCAutoSnailEscritorio;
 using System.Windows;
 using System.Windows.Media.Imaging;
-using MOOCAutoSnailEscritorio.viewmodels;
 using TeachMe.viewmodels;
 using TeachMe;
 
 
-namespace MOOCAutoSnailEscritorio.viewmodels
+namespace TeachMe.viewmodels
 {
     public sealed class NavigationViewModel : ObservableObject
     {
@@ -40,7 +38,7 @@ namespace MOOCAutoSnailEscritorio.viewmodels
             
             /*instance.currentPage = new Botonera();
             instance.currentPage.DataContext = new CategoriaViewModel();*/
-            //instance.currentPageNav = new MainWindow();
+            instance.currentPageNav = new NavVerbos();
             instance.currentPageNav.DataContext = new verbosViewModel();
          
             instance.Back = new Stack<Page>();
