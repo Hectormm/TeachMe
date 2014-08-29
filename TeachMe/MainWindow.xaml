@@ -18,7 +18,7 @@
         
     </Grid>-->
 
-    <Grid Background="#FF3D3D3D">
+    <Grid>
         <!--<Image Source="pack://siteoforigin:,,,/fondo android.PNG" Stretch="Fill" OpacityMask="Black"/>-->
         <Frame Height="511" Width="180" HorizontalAlignment="Left" Margin="0,0,0,0" Name="frameBotonera" VerticalAlignment="Top" Content="{Binding Path=CurrentPageNav, Mode=OneWay}"/>
 

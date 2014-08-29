@@ -22,6 +22,17 @@ namespace TeachMe.viewmodels
             dictionary = rellenarDictionary(dictionary);
 
             MessageBox.Show(dictionary.Count.ToString());
+
+            /*foreach (KeyValuePair<string, List<String>> result in dictionary)
+            {
+                Console.WriteLine(string.Format("Key-{0}:Value-{1}", result.Key, result.Value));
+                MessageBox.Show("Key: " + result.Key);
+
+                foreach(string a in result.Value)
+                {
+                    MessageBox.Show(a);
+                }
+            }*/
         }
 
         #region Validation
