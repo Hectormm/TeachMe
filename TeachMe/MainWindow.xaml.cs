@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeachMe.viewmodels;
 
 namespace TeachMe
 {
@@ -23,6 +24,8 @@ namespace TeachMe
         public MainWindow()
         {
             InitializeComponent();
+            //MOOCAutoSnailEscritorio.viewmodels.NavigationViewModel.Instance.CurrentPage.DataContext = new CategoriaViewModel();
+            //TeachMe.viewmodels
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
