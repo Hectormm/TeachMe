@@ -50,21 +50,38 @@ namespace TeachMe.viewmodels
             get { return IsValid(propertyName); }
         }
 
-        
+        private bool validarNombre = false;
+        private bool validarDescripcion = false;
 
         private string IsValid(string propertyName)
         {
-            
+            if (propertyName == "Nombre")
+            {
+                if (validarNombre)
+                {
+                    if (!this.nombre.Equals("be"))
+                    {
+                        Color = "Red";
+                        return "El campo Nombre no puede estar vacío.";
+                    }
+                    Color = "Green";
+                    
+                }
+                else
+                {
+                    validarNombre = !validarNombre;
+                }
+            }
             return null;
         }
 
         public bool IsValid()
         {
-            bool correcto = string.IsNullOrEmpty(IsValid("Nombre") + IsValid("Descripcion"));
+            bool correcto = this.nombre.Equals("be");
             if (!correcto)
             {
                 RaisePropertyChanged("Nombre");
-                RaisePropertyChanged("Descripcion");
+                RaisePropertyChanged("Color");
             }
             return correcto;
         }
@@ -84,6 +101,21 @@ namespace TeachMe.viewmodels
             {
                 nombre = value;
                 RaisePropertyChanged("Nombre");
+            }
+        }
+
+        private string color = "White";
+
+        public String Color
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                color = value;
+                RaisePropertyChanged("Color");
             }
         }
 
@@ -127,7 +159,7 @@ namespace TeachMe.viewmodels
            {
                 if(i == randomNumber)
                 {
-                    nombre = result.Key;
+                    nombre = result.Value.Last();
                 }
 
                i++;

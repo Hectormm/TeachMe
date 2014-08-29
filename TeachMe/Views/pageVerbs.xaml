@@ -7,10 +7,14 @@
 	Title="pageVerbs"  Height="419" Width="825">
 
     <Grid>
-        
+
         <Label Foreground="White" Content="Hola" FontSize="30" FontFamily="Georgia" />
 
         <Label x:Name="txbNombre" KeyboardNavigation.TabIndex="1" Foreground="White" FontSize="30" Margin="120,10,555,354" FontFamily="Georgia" Content="{Binding Nombre, Mode=TwoWay, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ForceCursor="True" />
+
+        <TextBox x:Name="txbDescripcion" Margin="255,144,424,239" Background="{Binding Color, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AcceptsReturn="True" Text="{Binding Nombre, Mode=TwoWay, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ForceCursor="True">
+            <!--helper:PlaceHolderHelper.PlaceHolderText="Introduzca una Descripción a la Categoria"-->
+        </TextBox>
 
     </Grid>
 </Page>
